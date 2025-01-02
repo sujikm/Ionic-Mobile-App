@@ -5,6 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, I
 import { DataService } from '../services/data.service';
 import { MyHttpService } from '../services/my-http.service';
 import { HttpOptions } from '@capacitor/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-countries',
@@ -19,7 +20,7 @@ countryinfo!:any;
 options:HttpOptions={
   url:"https://restcountries.com/v3.1/name/"
 }
-  constructor(private ds:DataService,private mhs:MyHttpService) { }
+  constructor(private router: Router,private ds:DataService,private mhs:MyHttpService) { }
 
   ngOnInit() {
     this.getUN();
@@ -29,7 +30,12 @@ options:HttpOptions={
     this.options.url=this.options.url.concat(this.united)
    let result=await this.mhs.get(this.options)
    this.countryinfo=result.data
-   console.log(JSON.stringify(this.countryinfo))
+   //console.log(JSON.stringify(this.countryinfo))
   }
 
+ async openCountry(c:any){
+    await this.ds.set("code",c.cca2)
+    console.log(c.cca2);
+    this.router.navigate(['/news'])
+  }
 }
