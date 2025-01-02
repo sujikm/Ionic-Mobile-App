@@ -6,4 +6,15 @@
 
 <ion-content [fullscreen]="true">
  {{united}}
+ <ion-card *ngFor="let country of countryinfo">
+  <img alt="Country Flag" src="{{country.flags.png}}" />
+  <ion-card-header>
+    <ion-card-title>{{country.name.official}}</ion-card-title>
+      </ion-card-header>
+
+  <ion-card-content>
+    <ion-button expand="full">News</ion-button>
+    <ion-button expand="block">WEATHER</ion-button>
+  </ion-card-content>
+</ion-card>
 </ion-content>
