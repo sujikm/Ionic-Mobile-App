@@ -15,6 +15,7 @@ import { MyHttpService } from '../services/my-http.service';
 })
 export class NewsPage implements OnInit {
 code:any;
+c_name:any;
 news: { country: string } = { country: '' }; 
 newsinfo!:any;
 options:HttpOptions={
@@ -27,9 +28,14 @@ options:HttpOptions={
   }
   async getNewsFromStorage(){
     this.code =await this.ds.get("code")
+    this.c_name=await this.ds.get("name");
     this.options.url=this.options.url.concat(this.code)
     let result=await this.mhs.get(this.options)
     this.newsinfo=result.data.results
+    const countryArray= this.newsinfo[0].country; // Extract country from the first news item
+      this.news.country = Array.isArray(countryArray) && countryArray.length > 0
+      ? countryArray[0].toUpperCase() // Take the first element and convert to uppercase
+      : 'UNKNOWN COUNTRY'; 
     console.log(this.newsinfo)
     //console.log(this.code)
   }

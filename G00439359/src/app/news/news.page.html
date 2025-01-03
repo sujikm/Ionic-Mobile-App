@@ -1,11 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>News from {{news.country}} </ion-title>
+    <ion-title>News from {{c_name}} </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h2>News for {{news.country}}</h2>
+  <h2 *ngIf="!news.country || news.country.trim() === ''">No news found for  {{c_name}}</h2>
+
+  <!-- If news.country is not empty, display the country name -->
+  <h2 *ngIf="news.country && news.country.trim() !== ''">News for {{ news.country }}</h2>
     <ion-card *ngFor="let news of newsinfo">
       <img alt="Country Flag" src="{{news.image_url}}" />
     <ion-card-header>
