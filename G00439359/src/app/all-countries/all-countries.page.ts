@@ -35,7 +35,6 @@ options:HttpOptions={
 
  async openCountry(c:any){
     await this.ds.set("code",c.cca2)
-    console.log(c.cca2);
     this.router.navigate(['/news'])
   }
 }
