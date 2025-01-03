@@ -31,11 +31,17 @@ options:HttpOptions={
    let result=await this.mhs.get(this.options)
    this.countryinfo=result.data
    //console.log(JSON.stringify(this.countryinfo))
-  }
+     }
 
  async openCountry(c:any){
     await this.ds.set("code",c.cca2)
     await this.ds.set("name",c.name.official)
     this.router.navigate(['/news'])
+  }
+  async openWeather(w:any){
+    await this.ds.set("latitude",w.latlng[0])
+    await this.ds.set("longitude",w.latlng[1])
+    await this.ds.set("capital",w.capital)
+    this.router.navigate(['/weather'])
   }
 }

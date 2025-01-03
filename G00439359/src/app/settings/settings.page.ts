@@ -24,6 +24,5 @@ export class SettingsPage implements OnInit {
   async saveUnit() {
     // Save the selected unit to the storage
     await this.ds.set('unit', this.selectedUnit);
-    console.log(this.selectedUnit)
   }
 }
