@@ -8,9 +8,9 @@
 
 <ion-content [fullscreen]="true">
   <h1>G00439359</h1>
-  <a routerLink='/settings'>
-<img src="assets/icon/2099058.png" width="24px" height="24px" align="right" cursor="pointer">
-</a>
+  <div class="image" (click)="goToSettings()">
+<img src="assets/icon/2099058.png" >
+</div>
 <ion-input label="Enter Country" placeholder="united" [(ngModel)] = "united"></ion-input>
-<ion-button (click)="openCountries()">SEARCH</ion-button>
+<ion-button (click)="openCountries()"expand="full">SEARCH</ion-button>
 </ion-content>

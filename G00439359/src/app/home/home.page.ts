@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { IonHeader, IonToolbar, IonTitle, IonContent,IonButton,IonInput} from '@ionic/angular/standalone';
@@ -9,7 +8,7 @@ import { DataService } from '../services/data.service';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent,IonButton,RouterLink,IonInput,FormsModule],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent,IonButton,IonInput,FormsModule],
 })
 export class HomePage {
   united:string=""
@@ -18,5 +17,9 @@ export class HomePage {
   async openCountries(){
 await this.ds.set("UN",this.united);
 this.router.navigate(['/all-countries'])
+  }
+  goToSettings() {
+    this.router.navigate(['/settings']);
+    console.log("image clicked")
   }
 }
