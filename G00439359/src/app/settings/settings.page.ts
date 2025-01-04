@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonRadioGroup, IonRadio } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonRadioGroup, IonRadio, IonButton } from '@ionic/angular/standalone';
 import { DataService } from '../services/data.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.scss'],
   standalone: true,
-  imports: [IonRadio, IonRadioGroup, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonButton, IonRadio, IonRadioGroup, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class SettingsPage implements OnInit {
   selectedUnit: string = 'Metric'; 
- constructor(private ds:DataService) {}
+ constructor(private ds:DataService,private router:Router) {}
   ngOnInit() {
     this.getMetricFromStorage();
   }
@@ -24,5 +24,8 @@ export class SettingsPage implements OnInit {
   async saveUnit() {
     // Save the selected unit to the storage
     await this.ds.set('unit', this.selectedUnit);
+  }
+  goToHome() {
+    this.router.navigate(['/home']);
   }
 }

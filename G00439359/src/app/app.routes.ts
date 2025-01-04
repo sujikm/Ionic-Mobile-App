@@ -27,4 +27,4 @@ export const routes: Routes = [
     loadComponent: () => import('./weather/weather.page').then( m => m.WeatherPage)
   },
   
-];
+  ];
