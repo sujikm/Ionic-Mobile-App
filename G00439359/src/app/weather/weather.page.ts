@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton } from '@ionic/angular/standalone';
 import { DataService } from '../services/data.service';
 import { HttpOptions } from '@capacitor/core';
 import { MyHttpService } from '../services/my-http.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.page.html',
   styleUrls: ['./weather.page.scss'],
   standalone: true,
-  imports: [IonCardSubtitle, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonButton, IonCardSubtitle, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class WeatherPage implements OnInit {
 selectedUnit: string=""
@@ -28,7 +28,7 @@ options1:HttpOptions={
 options2:HttpOptions={
   url:""
 }
-  constructor(private ds:DataService,private mhs:MyHttpService) { }
+  constructor(private ds:DataService,private mhs:MyHttpService,private router:Router) { }
 
   ngOnInit() {
     this.getWeatherFromStorage();
@@ -52,5 +52,7 @@ options2:HttpOptions={
     this.temp = this.weatherinfo.main.temp;
    //console.log(this.weatherinfo)
   }
-
+  goToHome() {
+    this.router.navigate(['/all-countries']);
+  }
 }
