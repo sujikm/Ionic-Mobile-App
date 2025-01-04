@@ -38,19 +38,19 @@ options2:HttpOptions={
     this.capital=await this.ds.get("capital");
     this.Latitude=await this.ds.get('latitude')
     this.Longitude=await this.ds.get('longitude')
-    console.log(this.Latitude)
-    console.log(this.Longitude)
+    //console.log(this.Latitude)
+    //console.log(this.Longitude)
     this.options1.url="https://api.openweathermap.org/data/2.5/weather?lat=" + this.Latitude +"&lon="+this.Longitude+"&units="+this.selectedUnit+"&appid=43339f2e8ec0ef0ace39731fe0a1650f"
-    console.log(this.options1.url)
+    //console.log(this.options1.url)
     let result=await this.mhs.get(this.options1)
     this.weatherinfo=result.data
     this.desc=this.weatherinfo.weather[0].description 
     this.icon=this.weatherinfo.weather[0].icon 
-    console.log(this.icon)
+    //console.log(this.icon)
     this.options2.url="https://openweathermap.org/img/wn/" + this.icon+ "@2x.png"
-    console.log(this.options2.url)
+    //console.log(this.options2.url)
     this.temp = this.weatherinfo.main.temp;
-   console.log(this.weatherinfo)
+   //console.log(this.weatherinfo)
   }
 
 }
