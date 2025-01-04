@@ -44,4 +44,7 @@ options:HttpOptions={
     await this.ds.set("capital",w.capital)
     this.router.navigate(['/weather'])
   }
+  goToHome() {
+    this.router.navigate(['/home']);
+  }
 }

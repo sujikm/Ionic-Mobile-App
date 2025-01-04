@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>allCountries</ion-title>
+    <ion-title>All Countries</ion-title>
+    <div class="btn">
+    <ion-button class="custom-button" (click)="goToHome()">Back To Home</ion-button>
+  </div>
   </ion-toolbar>
 </ion-header>
 
@@ -10,6 +13,7 @@
   <img alt="Country Flag" src="{{country.flags.png}}" />
   <ion-card-header>
     <ion-card-title>{{country.name.official}}</ion-card-title>
+    <ion-card-title>Capital:{{country.capital}}</ion-card-title>
       </ion-card-header>
 
   <ion-card-content>
