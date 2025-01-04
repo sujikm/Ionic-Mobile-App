@@ -21,7 +21,11 @@ weatherinfo!:any;
 capital:string=""
 desc:string=""
 temp:number=0;
-options:HttpOptions={
+icon:string=""
+options1:HttpOptions={
+  url:""
+}
+options2:HttpOptions={
   url:""
 }
   constructor(private ds:DataService,private mhs:MyHttpService) { }
@@ -31,20 +35,21 @@ options:HttpOptions={
   }
   async getWeatherFromStorage(){
     this.selectedUnit = await this.ds.get('unit') || 'Metric'; // Default to 'Metric' if nothing is saved
-    console.log('Selected Unit:', this.selectedUnit);
     this.capital=await this.ds.get("capital");
     this.Latitude=await this.ds.get('latitude')
     this.Longitude=await this.ds.get('longitude')
     console.log(this.Latitude)
     console.log(this.Longitude)
-    this.options.url="https://api.openweathermap.org/data/2.5/weather?lat=" + this.Latitude +"&lon="+this.Longitude+"&units="+this.selectedUnit+"&appid=43339f2e8ec0ef0ace39731fe0a1650f"
-    console.log(this.options.url)
-    let result=await this.mhs.get(this.options)
+    this.options1.url="https://api.openweathermap.org/data/2.5/weather?lat=" + this.Latitude +"&lon="+this.Longitude+"&units="+this.selectedUnit+"&appid=43339f2e8ec0ef0ace39731fe0a1650f"
+    console.log(this.options1.url)
+    let result=await this.mhs.get(this.options1)
     this.weatherinfo=result.data
     this.desc=this.weatherinfo.weather[0].description 
+    this.icon=this.weatherinfo.weather[0].icon 
+    console.log(this.icon)
+    this.options2.url="https://openweathermap.org/img/wn/" + this.icon+ "@2x.png"
+    console.log(this.options2.url)
     this.temp = this.weatherinfo.main.temp;
-    console.log(this.temp)
-    console.log(this.desc)
    console.log(this.weatherinfo)
   }
 
