@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonButton } from '@ionic/angular/standalone';
 import { DataService } from '../services/data.service';
 import { HttpOptions } from '@capacitor/core';
 import { MyHttpService } from '../services/my-http.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-news',
   templateUrl: './news.page.html',
   styleUrls: ['./news.page.scss'],
   standalone: true,
-  imports: [IonCardSubtitle, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonButton, IonCardSubtitle, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class NewsPage implements OnInit {
 code:any;
@@ -21,7 +21,7 @@ newsinfo!:any;
 options:HttpOptions={
   url:"https://newsdata.io/api/1/latest?apikey=pub_64175fa167dbc5da6ed88504bc76c5b803f9a&country="
 }
-  constructor(private ds:DataService,private mhs:MyHttpService) { }
+  constructor(private ds:DataService,private mhs:MyHttpService,private router:Router) { }
 
   ngOnInit() {
     this.getNewsFromStorage();
@@ -39,5 +39,7 @@ options:HttpOptions={
     console.log(this.newsinfo)
     //console.log(this.code)
   }
-
+  goToHome() {
+    this.router.navigate(['/all-countries']);
+  }
 }
