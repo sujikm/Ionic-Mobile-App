@@ -39,7 +39,7 @@ The application has been successfully tested in a **virtual machine environment*
 - Displays **current weather data** based on the **latitude** and **longitude** of the selected country.
 - Weather information is retrieved dynamically using online APIs.
 
----
+--- 
 
 # 🚀 How to Run This Project Locally
 
@@ -50,5 +50,5 @@ The application has been successfully tested in a **virtual machine environment*
    ...bash
    cd Ionic-Mobile-App
 3. **Install the dependencies:**
-   ...bash
+  ```bash
    npm install
