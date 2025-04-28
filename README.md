@@ -55,3 +55,14 @@ The application has been successfully tested in a **virtual machine environment*
 4.  **Run the application:**
     ```bash   
    ionic serve
+# 🛠️ Technologies Used
+
+- **Ionic Framework** – for building cross-platform mobile apps
+- **Angular** – as the front-end framework
+- **TypeScript** – for type-safe JavaScript development
+- **HTML5 & CSS3** – for UI structure and styling
+- **Node.js & npm** – for package management and development tooling
+- **REST APIs**:
+  - [restcountries.com](https://restcountries.com/) – for country data
+  - [newsdata.io](https://newsdata.io/) – for latest news data
+- **Virtual Machine** – for testing the mobile application
