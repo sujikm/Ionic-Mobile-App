@@ -52,3 +52,6 @@ The application has been successfully tested in a **virtual machine environment*
 3. **Install the dependencies:**
   ```bash
    npm install
+4. **Run the applicaton.**
+    ```bash
+   ionic serve
