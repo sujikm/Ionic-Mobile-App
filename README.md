@@ -55,6 +55,7 @@ The application has been successfully tested in a **virtual machine environment*
 4.  **Run the application:**
     ```bash   
    ionic serve
+---
 
 # 🛠️ Technologies Used
 
