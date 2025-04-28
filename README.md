@@ -54,7 +54,8 @@ The application has been successfully tested in a **virtual machine environment*
     npm install
 4. **Run the application:**
    ```bash
-  npm serve
+    npm serve
+   
 # 🛠️ Technologies Used
 
 - **Ionic Framework** – for building cross-platform mobile apps  
