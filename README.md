@@ -46,3 +46,9 @@ The application has been successfully tested in a **virtual machine environment*
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/sujikm/Ionic-Mobile-App.git
+2. **Navigate in tothe project directory
+   ...bash
+   cd Ionic-Mobile-App
+3. **Install the dependencies:
+   ...bash
+   npm install
